@@ -45,7 +45,7 @@
         <!-- commons 公共项目 -->
         <dependency>
             <groupId>com.aiolos</groupId>
-            <artifactId>commons</artifactId>
+            <artifactId>food-model</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!-- 自定义的元数据依赖 -->

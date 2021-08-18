@@ -1,7 +1,7 @@
 package com.aiolos.commons.advice;
 
-import com.aiolos.news.common.enums.ErrorEnum;
-import com.aiolos.news.common.response.CommonResponse;
+import com.aiolos.commons.enums.ErrorEnum;
+import com.aiolos.commons.response.CommonResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.ServletRequestBindingException;
