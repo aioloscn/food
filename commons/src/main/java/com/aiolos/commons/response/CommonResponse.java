@@ -3,7 +3,6 @@ package com.aiolos.commons.response;
 import cn.hutool.http.HttpStatus;
 import com.aiolos.commons.enums.ErrorEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
 import lombok.ToString;
 
 import java.io.Serializable;
@@ -15,7 +14,6 @@ import java.util.Map;
  * @author Aiolos
  * @date 2020/9/22 1:11 下午
  */
-@Getter
 @ToString
 public class CommonResponse<T> extends AbstractCommonResponse implements Serializable {
 
@@ -43,21 +41,21 @@ public class CommonResponse<T> extends AbstractCommonResponse implements Seriali
     private int capacity = 1 << 3;
 
     private CommonResponse() {
-        super.init(this.getCapacity());
+        super.init(this.capacity);
     }
 
     private CommonResponse(String msg) {
-        super.init(this.getCapacity());
+        super.init(this.capacity);
         this.msg = msg;
     }
 
     private CommonResponse(T data) {
-        super.init(this.getCapacity());
+        super.init(this.capacity);
         this.data = data;
     }
 
     private CommonResponse(String msg, T data) {
-        super.init(this.getCapacity());
+        super.init(this.capacity);
         this.msg = msg;
         this.data = data;
     }
@@ -113,6 +111,23 @@ public class CommonResponse<T> extends AbstractCommonResponse implements Seriali
         super.put(key, value);
         this.map = super.getMap();
         return this;
+    }
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    @Override
+    public Map<Object, Object> getMap() {
+        return map;
     }
 
     public void setCode(Integer code) {

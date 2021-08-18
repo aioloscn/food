@@ -1,4 +1,4 @@
-package com.aiolos.oauth2.server.mapper;
+package com.aiolos.diners.mapper;
 
 import com.aiolos.food.pojo.Diners;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
