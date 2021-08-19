@@ -32,10 +32,6 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.battcn</groupId>
-            <artifactId>swagger-spring-boot-starter</artifactId>
-        </dependency>
         <!-- swagger2工具类 -->
         <dependency>
             <groupId>io.springfox</groupId>

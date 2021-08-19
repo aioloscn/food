@@ -4,7 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import com.aiolos.commons.domain.OAuthDinerInfo;
 import com.aiolos.commons.enums.ErrorEnum;
 import com.aiolos.commons.response.CommonResponse;
-import com.aiolos.diners.controller.config.OAuth2ClientConfiguration;
+import com.aiolos.diners.config.OAuth2ClientConfiguration;
 import com.aiolos.diners.service.DinersService;
 import com.aiolos.food.pojo.vo.LoginDinerVO;
 import org.springframework.beans.factory.annotation.Value;

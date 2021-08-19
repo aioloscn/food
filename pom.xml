@@ -72,11 +72,6 @@
             </dependency>
             <!-- swagger 依赖 -->
             <dependency>
-                <groupId>com.battcn</groupId>
-                <artifactId>swagger-spring-boot-starter</artifactId>
-                <version>${swagger-starter-version}</version>
-            </dependency>
-            <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger2</artifactId>
                 <version>${springfox-swagger2.version}</version>

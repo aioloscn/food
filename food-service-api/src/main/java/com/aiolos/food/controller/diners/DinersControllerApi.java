@@ -15,7 +15,7 @@ import javax.validation.Valid;
  * @date 2021/8/18 10:41 下午
  */
 @Api(tags = "食客相关接口")
-@RequestMapping("diners")
+@RequestMapping
 public interface DinersControllerApi {
 
     @ApiOperation(value = "登录功能", httpMethod = "POST")

@@ -1,4 +1,4 @@
-package com.aiolos.diners.controller.config;
+package com.aiolos.diners.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;

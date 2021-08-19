@@ -1,4 +1,4 @@
-package com.aiolos.diners.controller.config;
+package com.aiolos.diners.config;
 
 import lombok.Getter;
 import lombok.Setter;
