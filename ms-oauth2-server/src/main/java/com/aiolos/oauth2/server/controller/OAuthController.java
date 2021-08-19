@@ -1,6 +1,7 @@
 package com.aiolos.oauth2.server.controller;
 
 import com.aiolos.commons.response.CommonResponse;
+import com.aiolos.food.controller.oauth.OAuthControllerApi;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.endpoint.TokenEndpoint;
@@ -21,8 +22,7 @@ import java.util.Map;
  * @date 2021/8/16 10:03 下午
  */
 @RestController
-@RequestMapping("oauth")
-public class OAuthController {
+public class OAuthController implements OAuthControllerApi {
 
     private final TokenEndpoint tokenEndpoint;
 
@@ -30,7 +30,7 @@ public class OAuthController {
         this.tokenEndpoint = tokenEndpoint;
     }
 
-    @PostMapping("token")
+    @Override
     public CommonResponse postAccessToken(Principal principal, @RequestParam Map<String, String> parameters) throws HttpRequestMethodNotSupportedException {
         return custom(tokenEndpoint.postAccessToken(principal, parameters).getBody());
     }
