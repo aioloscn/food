@@ -12,7 +12,28 @@ spring:
           lower-case-service-id: true
       routes:
         - id: ms-diners
-          url: lb://ms-diners   # load balance
+          uri: lb://ms-diners   # load balance
+          predicates:
+            - Path=/diners/**
+          filters:
+            - StripPrefix=1
+
+        - id: ms-oauth2-server
+          uri: lb://ms-oauth2-server
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1   # 过滤掉请求路径的第一层，也就是/auth
+
+source:
+  ignore:
+    urls:   # 配置白名单路径，白名单以外的请求需要身份校验
+      - /actuator/**
+      - /auth/oauth/**
+      - /diners/sms/sendCode
+      - /diners/checkPhone
+      - /diners/register
+      - /diners/signin
 
 eureka:
   instance:

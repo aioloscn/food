@@ -1,6 +1,8 @@
 package com.aiolos.diners.service;
 
+import com.aiolos.commons.exception.CustomizedException;
 import com.aiolos.commons.response.CommonResponse;
+import com.aiolos.food.pojo.bo.DinerRegisterBO;
 
 /**
  * @author Aiolos
@@ -15,4 +17,18 @@ public interface DinersService {
      * @return
      */
     CommonResponse signIn(String account, String password);
+
+    /**
+     * 检查手机号是否已注册
+     * @param phone
+     * @return
+     */
+    CommonResponse checkPhoneIsRegistered(String phone);
+
+    /**
+     * 注册
+     * @param dinerRegisterBO
+     * @return
+     */
+    CommonResponse register(DinerRegisterBO dinerRegisterBO) throws CustomizedException;
 }

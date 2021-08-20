@@ -25,6 +25,11 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         resources.authenticationEntryPoint(authenticationEntryPoint);
     }
 
+    /**
+     * 授予/user/**开头的接口访问权限，否则会403
+     * @param http
+     * @throws Exception
+     */
     @Override
     public void configure(HttpSecurity http) throws Exception {
         // 配置放行资源

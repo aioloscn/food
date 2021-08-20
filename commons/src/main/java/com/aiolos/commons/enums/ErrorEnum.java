@@ -48,13 +48,15 @@ public enum ErrorEnum implements CommonError {
     DUPLICATION_OPERATION(20011, "重复操作"),
     TOKEN_INVALID(20012, "会话失效，请重新登录"),
     VERIFY_QQ_ERROR(20013, "用户QQ校验异常"),
-    ACCOUNT_FROZEN(20014, "账号已被冻结，请联系管理员"),
+    ACCOUNT_FROZEN(20014, "账号已被冻结或注销，请联系管理员"),
     REGISTER_FAILED(20015, "注册失败"),
     USER_UPDATE_FAILED(20016, "用户信息更新失败，请联系管理员"),
     USER_INACTIVE_ERROR(20017, "请前往[账号设置]修改信息激活后再进行操作"),
     USER_STATUS_ERROR(20018, "用户状态参数出错"),
     USERNAME_CAN_NOT_BE_EMPTY(20019, "用户名不能为空"),
     WRONG_USERNAME_OR_PASSWORD(20020, "用户名或密码错误"),
+    USERNAME_EXIST_ERROR(20021, "用户名已存在"),
+    AUTHENTICATION_FAILED(20022, "用户认证失败"),
 
     // 业务相关错误类型
     INFORMATION_RELEASE_FAILED(30000, "短消息提交失败"),

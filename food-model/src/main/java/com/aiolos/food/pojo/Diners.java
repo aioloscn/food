@@ -1,5 +1,7 @@
 package com.aiolos.food.pojo;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import javax.persistence.*;
@@ -10,6 +12,7 @@ import java.util.Date;
 public class Diners implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "SELECT LAST_INSERT_ID()")
+    @TableId(type = IdType.AUTO)
     private Integer id;
 
     private String username;
