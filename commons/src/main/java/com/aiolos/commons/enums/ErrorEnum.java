@@ -93,6 +93,12 @@ public enum ErrorEnum implements CommonError {
     FAILED_TO_POST_AN_ARTICLE_LATE(30031, "延时发布文章失败"),
     COMMENT_FAILED(30032, "评论失败"),
     FAILED_TO_DELETE_COMMENT(30033, "删除评论失败"),
+    NO_RELATED_ACTIVITIES(30034, "没有相关活动"),
+    ACTIVITY_HAS_NOT_YES_STARTED(30035, "活动尚未开始"),
+    ACTIVITY_HAS_ENDED(30036, "活动已结束"),
+    VOUCHERS_ARE_SOLD_OUT(30037, "该代金券已经售罄"),
+    PURCHASED_THE_VOUCHER(30038, "您已经抢购过该代金券"),
+    PANIC_BUYING_FAILED(30039, "抢购失败"),
 
     // 管理员相关类型错误
     ADMIN_NOT_EXIST_ERROR(40001, "管理员账号不存在或密码错误"),

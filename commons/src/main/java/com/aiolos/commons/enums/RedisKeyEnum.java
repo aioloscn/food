@@ -13,6 +13,7 @@ public enum RedisKeyEnum {
 
     VERIFY_CODE("verify_code:", "验证码"),
     INTERVAL_BETWEEN_SENDING_VERIFICATION_CODE("interval_between_sending_verification_code:", "发送验证码的间隔时间"),
+    SECKILL_VOUCHERS("seckill_vouchers:", "秒杀券的key")
     ;
 
     private String key;

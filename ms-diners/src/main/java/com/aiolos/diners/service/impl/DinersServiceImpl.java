@@ -132,7 +132,7 @@ public class DinersServiceImpl implements DinersService {
         diners.setCreateDate(new Date());
         diners.setUpdateDate(new Date());
         int resultCount = dinersMapper.insert(diners);
-        if (resultCount == 0) {
+        if (resultCount != 1) {
             try {
                 throw new RuntimeException();
             } catch (Exception e) {

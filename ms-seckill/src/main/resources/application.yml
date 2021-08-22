@@ -1,5 +1,5 @@
 server:
-  port: 8002
+  port: 8003
 
 eureka:
   instance:
@@ -11,7 +11,7 @@ eureka:
 
 spring:
   application:
-    name: ms-oauth2-server
+    name: ms-seckill
   profiles:
     active: dev
   jackson:
@@ -36,25 +36,6 @@ logging:
   level:
     org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration: error
 
-# 指标监控健康检查
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"  # 暴露的端点
-
-client:
-  oauth2:
-    client-id: appId
-    secret: 123456
-    # 授权类型
-    grant_types:
-      - password
-      - refresh_token
-    # token 有效时间，单位秒
-    token-validity-time: 604800
-    refresh-token-validity-time: 604800
-    # 客户端访问范围
-    scopes:
-      - api
-      - all
+service:
+  name:
+    ms-oauth-server: http://ms-oauth2-server/

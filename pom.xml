@@ -15,6 +15,7 @@
         <module>ms-oauth2-server</module>
         <module>food-model</module>
         <module>food-service-api</module>
+        <module>ms-seckill</module>
     </modules>
     <packaging>pom</packaging>
 

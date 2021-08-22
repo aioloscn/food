@@ -1,6 +1,14 @@
 server:
   port: 80
 
+eureka:
+  instance:
+    prefer-ip-address: true   # Ip地址端口注册的方式
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+
 spring:
   application:
     name: ms-gateway
@@ -10,6 +18,8 @@ spring:
         locator:
           enabled: true   # 开启配置注册中心进行路由功能
           lower-case-service-id: true
+      httpclient:
+        response-timeout: 10s
       routes:
         - id: ms-diners
           uri: lb://ms-diners   # load balance
@@ -25,6 +35,13 @@ spring:
           filters:
             - StripPrefix=1   # 过滤掉请求路径的第一层，也就是/auth
 
+        - id: ms-seckill
+          uri: lb://ms-seckill
+          predicates:
+            - Path=/seckill/**
+          filters:
+            - StripPrefix=1
+
 source:
   ignore:
     urls:   # 配置白名单路径，白名单以外的请求需要身份校验
@@ -34,11 +51,8 @@ source:
       - /diners/checkPhone
       - /diners/register
       - /diners/signin
+      - /seckill/add
 
-eureka:
-  instance:
-    prefer-ip-address: true   # Ip地址端口注册的方式
-    instance-id: ${spring.cloud.client.ip-address}:${server.port}
-  client:
-    service-url:
-      defaultZone: http://localhost:7001/eureka/
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 5000

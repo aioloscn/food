@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aiolos.seckill.mapper.VoucherMapper">
+  <resultMap id="BaseResultMap" type="com.aiolos.food.pojo.Voucher">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="thumbnail" jdbcType="VARCHAR" property="thumbnail" />
+    <result column="amount" jdbcType="INTEGER" property="amount" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="expire_time" jdbcType="TIMESTAMP" property="expireTime" />
+    <result column="redeem_restaurant_id" jdbcType="INTEGER" property="redeemRestaurantId" />
+    <result column="stock" jdbcType="INTEGER" property="stock" />
+    <result column="stock_left" jdbcType="INTEGER" property="stockLeft" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="clause" jdbcType="VARCHAR" property="clause" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="is_valid" jdbcType="TINYINT" property="isValid" />
+  </resultMap>
+</mapper>
