@@ -1,6 +1,7 @@
 package com.aiolos.seckill.service;
 
 import com.aiolos.commons.exception.CustomizedException;
+import com.aiolos.commons.exception.CustomizedRuntimeException;
 import com.aiolos.commons.response.CommonResponse;
 import com.aiolos.food.pojo.bo.SeckillVoucherInsertBO;
 
@@ -20,9 +21,9 @@ public interface SeckillService {
 
     /**
      * 抢购代金券
-     * @param voucherId       代金券 ID
+     * @param seckillVoucherId       代金券 ID
      * @param accessToken   登录 token
      * @return
      */
-    CommonResponse doSeckill(Integer voucherId, String accessToken) throws CustomizedException;
+    CommonResponse doSeckill(Integer seckillVoucherId, String accessToken) throws CustomizedRuntimeException;
 }

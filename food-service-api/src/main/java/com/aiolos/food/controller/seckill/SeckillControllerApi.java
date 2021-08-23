@@ -1,6 +1,7 @@
 package com.aiolos.food.controller.seckill;
 
 import com.aiolos.commons.exception.CustomizedException;
+import com.aiolos.commons.exception.CustomizedRuntimeException;
 import com.aiolos.commons.response.CommonResponse;
 import com.aiolos.food.pojo.bo.SeckillVoucherInsertBO;
 import io.swagger.annotations.Api;
@@ -25,6 +26,6 @@ public interface SeckillControllerApi {
     CommonResponse add(@Valid @RequestBody SeckillVoucherInsertBO seckillVoucherInsertBO) throws CustomizedException;
 
     @ApiOperation(value = "秒杀下单", httpMethod = "POST")
-    @PostMapping("{voucherId}")
-    CommonResponse doSeckill(@PathVariable Integer voucherId, String access_token) throws CustomizedException;
+    @PostMapping("{seckillVoucherId}")
+    CommonResponse doSeckill(@PathVariable Integer seckillVoucherId, String access_token) throws CustomizedRuntimeException;
 }

@@ -99,6 +99,7 @@ public enum ErrorEnum implements CommonError {
     VOUCHERS_ARE_SOLD_OUT(30037, "该代金券已经售罄"),
     PURCHASED_THE_VOUCHER(30038, "您已经抢购过该代金券"),
     PANIC_BUYING_FAILED(30039, "抢购失败"),
+    HAS_ALREADY_STARTED_A_PANIC_BUYING_ACTIVITY(30040, "该代金券已经开启过抢购活动"),
 
     // 管理员相关类型错误
     ADMIN_NOT_EXIST_ERROR(40001, "管理员账号不存在或密码错误"),

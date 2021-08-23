@@ -1,7 +1,7 @@
 package com.aiolos.commons.advice;
 
 import com.aiolos.commons.enums.ErrorEnum;
-import com.aiolos.commons.exception.CustomizedException;
+import com.aiolos.commons.exception.CustomizedRuntimeException;
 import com.aiolos.commons.response.CommonResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -20,23 +20,16 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Slf4j
 @RestControllerAdvice
-public class CustomizedExceptionAdvice {
+public class CustomizedRuntimeExceptionAdvice {
 
-    /**
-     * 定义ExceptionHandler解决为被controller层吸收的Exception和它的子类异常
-     * 默认配置中，Spring事务框架只会将Runtime、unchecked异常的事务标记为回滚
-     * 但是如果捕获RuntimeException的异常，Spring校验会用DefaultHandlerExceptionResolver解析器，从而进不了该类
-     * 如果捕获Exception异常，Spring校验会用ExceptionHandlerExceptionResolver解析器
-     * @return  返回封装好的公共web对象
-     */
-    @ExceptionHandler(value = CustomizedException.class)
+    @ExceptionHandler(value = CustomizedRuntimeException.class)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public CommonResponse handlerCustomizeException(HttpServletRequest req, HttpServletResponse resp, Exception e) {
 
-        if (e instanceof CustomizedException) {
-            log.warn("自定义异常捕获，异常信息：{}", ((CustomizedException) e).getErrMsg());
-            return CommonResponse.error(((CustomizedException) e).getErrCode(), ((CustomizedException) e).getErrMsg());
+        if (e instanceof CustomizedRuntimeException) {
+            log.warn("自定义运行时异常捕获，异常信息：{}", ((CustomizedRuntimeException) e).getErrMsg());
+            return CommonResponse.error(((CustomizedRuntimeException) e).getErrCode(), ((CustomizedRuntimeException) e).getErrMsg());
         } else {
             return CommonResponse.error(ErrorEnum.UNKNOWN_ERROR);
         }
