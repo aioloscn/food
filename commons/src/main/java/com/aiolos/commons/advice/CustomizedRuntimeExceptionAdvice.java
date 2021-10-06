@@ -4,6 +4,7 @@ import com.aiolos.commons.enums.ErrorEnum;
 import com.aiolos.commons.exception.CustomizedRuntimeException;
 import com.aiolos.commons.response.CommonResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Aiolos
  * @date 2020/10/10 4:14 下午
  */
+@Order(-9)
 @Slf4j
 @RestControllerAdvice
 public class CustomizedRuntimeExceptionAdvice {

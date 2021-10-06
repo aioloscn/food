@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aiolos.follow.mapper.FollowMapper">
+  <resultMap id="BaseResultMap" type="com.aiolos.food.pojo.Follow">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="diner_id" jdbcType="INTEGER" property="dinerId" />
+    <result column="follow_diner_id" jdbcType="INTEGER" property="followDinerId" />
+    <result column="is_valid" jdbcType="TINYINT" property="isValid" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+  </resultMap>
+
+</mapper>

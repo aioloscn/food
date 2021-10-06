@@ -17,4 +17,17 @@
     <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
     <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
   </resultMap>
+
+  <select id="findByIds" resultType="com.aiolos.food.pojo.vo.ShortDinerInfo">
+    select
+    id, nickname, avatar_url
+    from
+    t_diners
+    <where>
+      is_valid = 1 and id in
+      <foreach collection="ids" item="item" index="index" open="(" separator="," close=")">
+        #{ids}
+      </foreach>
+    </where>
+  </select>
 </mapper>

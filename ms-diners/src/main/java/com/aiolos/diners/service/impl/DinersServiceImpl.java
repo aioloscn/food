@@ -15,6 +15,7 @@ import com.aiolos.diners.service.SendVerifyCodeService;
 import com.aiolos.food.pojo.Diners;
 import com.aiolos.food.pojo.bo.DinerRegisterBO;
 import com.aiolos.food.pojo.vo.LoginDinerVO;
+import com.aiolos.food.pojo.vo.ShortDinerInfo;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,8 +29,10 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 /**
  * @author Aiolos
@@ -144,5 +147,15 @@ public class DinersServiceImpl implements DinersService {
         redisTemplate.delete(RedisKeyEnum.VERIFY_CODE.getKey() + diners.getPhone());
         // 自动登录
         return this.signIn(dinerRegisterBO.getUsername(), dinerRegisterBO.getPassword());
+    }
+
+    @Override
+    public List<ShortDinerInfo> findByIds(String ids) {
+        if (StringUtils.isBlank(ids)) {
+            return new ArrayList<>();
+        }
+        String[] idArr = ids.split(",");
+        List<ShortDinerInfo> dinerInfos = dinersMapper.findByIds(idArr);
+        return dinerInfos;
     }
 }

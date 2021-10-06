@@ -1,8 +1,8 @@
-package com.aiolosgateway.filter;
+package com.aiolos.gateway.filter;
 
 import com.aiolos.commons.enums.ErrorEnum;
-import com.aiolosgateway.component.HandleException;
-import com.aiolosgateway.config.IgnoreUrlsConfig;
+import com.aiolos.gateway.component.HandleException;
+import com.aiolos.gateway.config.IgnoreUrlsConfig;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;

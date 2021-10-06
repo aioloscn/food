@@ -42,6 +42,20 @@ spring:
           filters:
             - StripPrefix=1
 
+        - id: ms-restaurants
+          uri: lb://ms-restaurants
+          predicates:
+            - Path=/restaurants/**
+          filters:
+            - StripPrefix=1
+
+        - id: ms-follow
+          uri: lb://ms-follow
+          predicates:
+            - Path=/follow/**
+          filters:
+            - StripPrefix=1
+
 source:
   ignore:
     urls:   # 配置白名单路径，白名单以外的请求需要身份校验
@@ -52,6 +66,7 @@ source:
       - /diners/register
       - /diners/signin
       - /seckill/add
+      - /restaurants/**
 
 ribbon:
   ReadTimeout: 10000

@@ -1,4 +1,4 @@
-package com.aiolos.commons.config;
+package com.aiolos.food.config;
 
 import org.apache.catalina.connector.Connector;
 import org.apache.coyote.http11.Http11NioProtocol;

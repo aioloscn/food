@@ -100,6 +100,8 @@ public enum ErrorEnum implements CommonError {
     PURCHASED_THE_VOUCHER(30038, "您已经抢购过该代金券"),
     PANIC_BUYING_FAILED(30039, "抢购失败"),
     HAS_ALREADY_STARTED_A_PANIC_BUYING_ACTIVITY(30040, "该代金券已经开启过抢购活动"),
+    NO_RESTAURANT_ID(30041, "请选择餐厅"),
+    LACK_OF_FOLLOWER_INFORMATION(30042, "缺少关注人信息"),
 
     // 管理员相关类型错误
     ADMIN_NOT_EXIST_ERROR(40001, "管理员账号不存在或密码错误"),

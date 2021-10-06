@@ -16,7 +16,6 @@ import com.aiolos.seckill.mapper.VoucherOrderMapper;
 import com.aiolos.seckill.model.RedisLock;
 import com.aiolos.seckill.service.SeckillService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import org.apache.commons.lang3.StringUtils;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Value;

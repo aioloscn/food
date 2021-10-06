@@ -1,4 +1,4 @@
-package com.aiolosgateway;
+package com.aiolos.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

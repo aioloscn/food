@@ -52,7 +52,7 @@ public class OAuthControllerTest extends OAuth2ServerApplicationTests {
 
     @Test
     public void userme() throws Exception {
-        MvcResult mvcResult = super.mockMvc.perform(MockMvcRequestBuilders.get("/user/me?access_token=e038ff98-e16f-4f80-bbb9-b98505f0d144"))
+        MvcResult mvcResult = super.mockMvc.perform(MockMvcRequestBuilders.get("/user/me?access_token=00029c29-b6ee-49c3-826f-990e231f544d"))
                 .andExpect(status().isOk()).andDo(print()).andReturn();
     }
 }

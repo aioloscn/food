@@ -16,6 +16,8 @@
         <module>food-model</module>
         <module>food-service-api</module>
         <module>ms-seckill</module>
+        <module>ms-follow</module>
+        <module>ms-restaurants</module>
     </modules>
     <packaging>pom</packaging>
 

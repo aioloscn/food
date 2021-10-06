@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aiolos.restaurants.mapper.RestaurantsMapper">
+  <resultMap id="BaseResultMap" type="com.aiolos.food.pojo.Restaurants">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="cnname" jdbcType="VARCHAR" property="cnname" />
+    <result column="x" jdbcType="DOUBLE" property="x" />
+    <result column="y" jdbcType="DOUBLE" property="y" />
+    <result column="location" jdbcType="VARCHAR" property="location" />
+    <result column="cnlocation" jdbcType="VARCHAR" property="cnlocation" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="website" jdbcType="VARCHAR" property="website" />
+    <result column="cuisine" jdbcType="VARCHAR" property="cuisine" />
+    <result column="average_price" jdbcType="VARCHAR" property="averagePrice" />
+    <result column="introduction" jdbcType="VARCHAR" property="introduction" />
+    <result column="thumbnail" jdbcType="VARCHAR" property="thumbnail" />
+    <result column="like_votes" jdbcType="INTEGER" property="likeVotes" />
+    <result column="dislike_votes" jdbcType="INTEGER" property="dislikeVotes" />
+    <result column="city_id" jdbcType="INTEGER" property="cityId" />
+    <result column="is_valid" jdbcType="INTEGER" property="isValid" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+  </resultMap>
+</mapper>

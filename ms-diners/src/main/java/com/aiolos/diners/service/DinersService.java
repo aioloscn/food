@@ -3,6 +3,9 @@ package com.aiolos.diners.service;
 import com.aiolos.commons.exception.CustomizedException;
 import com.aiolos.commons.response.CommonResponse;
 import com.aiolos.food.pojo.bo.DinerRegisterBO;
+import com.aiolos.food.pojo.vo.ShortDinerInfo;
+
+import java.util.List;
 
 /**
  * @author Aiolos
@@ -31,4 +34,11 @@ public interface DinersService {
      * @return
      */
     CommonResponse register(DinerRegisterBO dinerRegisterBO) throws CustomizedException;
+
+    /**
+     * 根据 ids 查询食客信息
+     * @param ids
+     * @return
+     */
+    List<ShortDinerInfo> findByIds(String ids);
 }

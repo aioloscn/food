@@ -1,4 +1,4 @@
-package com.aiolosgateway.component;
+package com.aiolos.gateway.component;
 
 import com.aiolos.commons.enums.ErrorEnum;
 import com.aiolos.commons.response.CommonResponse;
