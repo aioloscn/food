@@ -23,4 +23,9 @@ public class FollowController implements FollowControllerApi {
     public CommonResponse follow(Integer followDinerId, int isFollowed, String access_token) throws CustomizedException {
         return followService.follow(followDinerId, isFollowed, access_token);
     }
+
+    @Override
+    public CommonResponse findCommonsFriends(Integer dinerId, String access_token) throws CustomizedException {
+        return followService.findCommonsFriends(dinerId, access_token);
+    }
 }

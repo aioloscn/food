@@ -46,4 +46,9 @@ public class DinersController implements DinersControllerApi {
         BeanUtil.trimStrFields(dinerRegisterBO);
         return dinersService.register(dinerRegisterBO);
     }
+
+    @Override
+    public CommonResponse findByIds(String ids) {
+        return CommonResponse.ok(dinersService.findByIds(ids));
+    }
 }

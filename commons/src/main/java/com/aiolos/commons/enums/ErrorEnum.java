@@ -102,6 +102,7 @@ public enum ErrorEnum implements CommonError {
     HAS_ALREADY_STARTED_A_PANIC_BUYING_ACTIVITY(30040, "该代金券已经开启过抢购活动"),
     NO_RESTAURANT_ID(30041, "请选择餐厅"),
     LACK_OF_FOLLOWER_INFORMATION(30042, "缺少关注人信息"),
+    PLEASE_SELECT_THE_PERSON_TO_VIEW(30043, "请选择要查看的人"),
 
     // 管理员相关类型错误
     ADMIN_NOT_EXIST_ERROR(40001, "管理员账号不存在或密码错误"),

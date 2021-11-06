@@ -1,6 +1,7 @@
 package com.aiolos.follow.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpStatus;
 import com.aiolos.commons.enums.ErrorEnum;
 import com.aiolos.commons.enums.FollowStatus;
@@ -11,6 +12,7 @@ import com.aiolos.commons.response.CommonResponse;
 import com.aiolos.follow.mapper.FollowMapper;
 import com.aiolos.follow.service.FollowService;
 import com.aiolos.food.pojo.Follow;
+import com.aiolos.food.pojo.vo.ShortDinerInfo;
 import com.aiolos.food.pojo.vo.SignInDinerInfo;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
@@ -22,8 +24,8 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Date;
-import java.util.LinkedHashMap;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author Aiolos
@@ -35,6 +37,8 @@ public class FollowServiceImpl implements FollowService {
 
     @Value("${service.name.ms-oauth-server}")
     private String oauthServerName;
+    @Value("${service.name.ms-diners}")
+    private String dinersServerName;
 
     private final RestTemplate restTemplate;
     private final RedisTemplate redisTemplate;
@@ -104,6 +108,35 @@ public class FollowServiceImpl implements FollowService {
             return CommonResponse.ok();
         }
         return CommonResponse.ok();
+    }
+
+    @Override
+    public CommonResponse findCommonsFriends(Integer dinerId, String accessToken) throws CustomizedException {
+        if (dinerId == null || dinerId < 1) {
+            return CommonResponse.error(ErrorEnum.PLEASE_SELECT_THE_PERSON_TO_VIEW);
+        }
+        // 获取登录用户信息
+        SignInDinerInfo dinerInfo = loadSignInDinerInfo(accessToken);
+        // 获取登录用户的关注信息
+        String loginDinerKey = RedisKeyEnum.FOLLOWING.getKey() + dinerInfo.getId();
+        // 获取查看对象的关注信息
+        String dinerKey = RedisKeyEnum.FOLLOWING.getKey() + dinerId;
+        // 计算交集
+        Set<Integer> dinerIds = redisTemplate.opsForSet().intersect(loginDinerKey, dinerKey);
+        if (dinerIds == null || dinerIds.isEmpty()) {
+            return CommonResponse.ok(new ArrayList<ShortDinerInfo>());
+        }
+        // 调用食客服务，根据ids查看食客信息
+        CommonResponse resp = restTemplate.getForObject(dinersServerName + "findByIds?ids={ids}&access_token={accessToken}",
+                CommonResponse.class, StrUtil.join(",", dinerIds), accessToken);
+        if (resp.getCode() != HttpStatus.HTTP_OK) {
+            log.error(resp.getMsg());
+            throw new CustomizedException(ErrorEnum.UNKNOWN_ERROR, resp.getMsg());
+        }
+        // 处理结果集
+        List<LinkedHashMap> dinerInfoMaps = (ArrayList) resp.getData();
+        List<ShortDinerInfo> dinerInfos = dinerInfoMaps.stream().map(diner -> BeanUtil.fillBeanWithMap(diner, new ShortDinerInfo(), false)).collect(Collectors.toList());
+        return CommonResponse.ok(dinerInfos);
     }
 
     /**

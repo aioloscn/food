@@ -4,10 +4,7 @@ import com.aiolos.commons.exception.CustomizedException;
 import com.aiolos.commons.response.CommonResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author Aiolos
@@ -20,4 +17,8 @@ public interface FollowControllerApi {
     @ApiOperation(value = "关注/取关", httpMethod = "POST")
     @PostMapping("/{followDinerId}")
     CommonResponse follow(@PathVariable Integer followDinerId, @RequestParam int isFollowed, String access_token) throws CustomizedException;
+
+    @ApiOperation(value = "查看共同关注列表", httpMethod = "GET")
+    @GetMapping("commons/{dinerId}")
+    CommonResponse findCommonsFriends(@PathVariable Integer dinerId, String access_token) throws CustomizedException;
 }

@@ -32,4 +32,8 @@ public interface DinersControllerApi {
     @ApiOperation(value = "用户注册", httpMethod = "POST")
     @PostMapping("register")
     CommonResponse register(@Valid @RequestBody DinerRegisterBO dinerRegisterBO) throws CustomizedException;
+
+    @ApiOperation(value = "根据ids查询食客信息", httpMethod = "GET")
+    @GetMapping("findByIds")
+    CommonResponse findByIds(String ids);
 }

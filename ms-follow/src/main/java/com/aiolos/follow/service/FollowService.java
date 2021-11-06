@@ -23,4 +23,11 @@ public interface FollowService {
      */
     CommonResponse follow(Integer followDinerId, int isFollowed, String accessToken) throws CustomizedException;
 
+    /**
+     * 共同关注列表
+     * @param dinerId
+     * @param accessToken
+     * @return
+     */
+    CommonResponse findCommonsFriends(Integer dinerId, String accessToken) throws CustomizedException;
 }
