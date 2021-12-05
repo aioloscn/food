@@ -39,3 +39,4 @@ application-prod.yml
 
 
 log/
+*.log
