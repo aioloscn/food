@@ -39,3 +39,5 @@ application-prod.yml
 
 
 log/
+*.log
+ms-oauth2-server/tokens.txt
