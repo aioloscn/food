@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: ENC(o/6LXZXdu54zf327Hnlx7A==)
+    password: ENC(M+WOux+fe9kDbSTD7FlUBLXlft29Advd)
+    url: jdbc:mysql://127.0.0.1:3306/food?serverTimezone=GMT%2B8&characterEncoding=utf-8&useUnicode=true&useSSL=false
+  redis:
+    timeout: 3000 # 连接超时时间
+    lettuce:
+      pool:
+        max-active: 8 # 最大连接数
+        max-idle: 8 # 最大空闲连接
+        min-idle: 0 # 最小空闲连接
+        max-wait: 1000  # 最大连接等待时间，单位毫秒，默认 -1ms
+    cluster:
+      nodes: 127.0.0.1:6371,127.0.0.1:6372,127.0.0.1:6373,127.0.0.1:6374,127.0.0.1:6375,127.0.0.1:6376
+      max-redirects: 5  # 命令执行时最大转发次数
+

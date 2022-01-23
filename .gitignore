@@ -34,9 +34,6 @@ build/
 
 commons/src/main/resources/aliyun.properties
 
-application-dev.yml
-application-prod.yml
-
 
 log/
 *.log
